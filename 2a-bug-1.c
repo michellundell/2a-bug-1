@@ -15,11 +15,10 @@ struct Flight {
 ** copy the path into the struct member path 
 */
 
-void setFlightPath(struct Flight f, const char *path)
+void setFlightPath(struct Flight *f, const char *path)
 {
-	strcpy(f.path, path );
+	strcpy(f->path, path );
 }
-
 
 /*
 ** Main entry 
@@ -29,9 +28,9 @@ int main(int argc, char **argv)
 {
 	struct Flight flight;
 
-	setFlightPath(flight, "GOT-CPH");
+	setFlightPath(&flight, "GOT-CPH");
 
-	printf("flight.path=%s\n",flight.path);
+	printf("flight.path=%s\n", flight.path);
 
 	return 0;
 }
