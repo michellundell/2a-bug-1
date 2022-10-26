@@ -8,16 +8,16 @@
 struct Flight
 {
 	char path[10];
-};
+} flight;
 
 /*
 ** copy the path into the struct member path
 */
 
-void setFlightPath(struct Flight f, const char *path)
+void setFlightPath(struct Flight *f, char *path)
 {
-	strcpy(f.path, path);
-	printf("flight.path=%s\n", f.path);
+	strcpy(f->path, path);
+	// printf("flight.path=%s\n", f.path);
 }
 
 /*
@@ -28,7 +28,8 @@ int main(int argc, char **argv)
 {
 	struct Flight flight;
 
-	setFlightPath(flight, "GOT-CPH");
+	setFlightPath(&flight, "GOT-CPH");
+	printf("flight.path=%s\n", flight.path);
 
 	return 0;
 }
